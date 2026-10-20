@@ -14,7 +14,7 @@ from . import doctrine, render
 from .store import Store, StoreError
 
 PROTOCOL = "2024-11-05"
-SERVER_INFO = {"name": "sooon-values", "version": "1.0.0"}
+SERVER_INFO = {"name": "sooon-values", "version": "1.0.1"}
 
 TOOLS = [
     {

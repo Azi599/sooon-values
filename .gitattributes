@@ -1,0 +1,7 @@
+# 一律按 LF 存、按 LF 检出：
+# 源文件若带 CRLF，安装时按文本模式写出会变成 \r\r\n，
+# frontmatter 解析失败，harness 会认不出技能。
+* text=auto eol=lf
+*.pyz binary
+*.gz binary
+*.png binary

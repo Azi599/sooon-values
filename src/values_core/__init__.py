@@ -8,7 +8,7 @@ from .doctrine import as_markdown, as_text, sections
 from .render import build_context, render_entry
 from .store import Entry, SearchHit, Store, StoreError
 
-__version__ = "1.0.0"
+__version__ = "1.0.1"
 __all__ = [
     "Store", "Entry", "SearchHit", "StoreError",
     "build_context", "render_entry",

@@ -34,7 +34,12 @@ def sync_data() -> None:
 def sync_plugin() -> None:
     src = ROOT / "skills" / "values-grounding" / "SKILL.md"
     (PKG / "skill").mkdir(parents=True, exist_ok=True)
-    shutil.copy2(src, PKG / "skill" / "SKILL.md")
+    # 归一成 LF 再进包：包里若存着 CRLF，安装时又按文本模式写就会变成 \\r\\r\\n
+    text = src.read_text(encoding="utf-8").replace("\r\n", "\n").replace("\r", "\n")
+    (PKG / "skill" / "SKILL.md").write_bytes(text.encode("utf-8"))
+    raw = (PKG / "skill" / "SKILL.md").read_bytes()
+    assert b"\r" not in raw, "包内 SKILL.md 含 CR：换行没归一"
+    print("  换行检查：包内 SKILL.md 为纯 LF")
     dst = ROOT / "plugin" / "skills" / "values-grounding"
     dst.mkdir(parents=True, exist_ok=True)
     shutil.copy2(src, dst / "SKILL.md")

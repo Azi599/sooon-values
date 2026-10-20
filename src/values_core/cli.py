@@ -20,7 +20,7 @@ from pathlib import Path
 from . import doctrine, render
 from .store import Store, StoreError
 
-VERSION = "1.0.0"
+VERSION = "1.0.1"
 
 
 def _force_utf8() -> None:
@@ -197,13 +197,24 @@ def _detected_targets() -> list[tuple[str, Path]]:
     return out
 
 
+def _to_lf(text: str) -> str:
+    """统一成 LF。
+
+    源文件在 Windows 上常被 git 检出成 CRLF，包里带的也是 CRLF。
+    后面按 \\n 做切分、再按文本模式写回时，Windows 会把每个 \\n 翻译成 \\r\\n，
+    原本的 \\r\\n 就变成 \\r\\r\\n —— frontmatter 开头的 `---` 后面多了个 CR，
+    YAML 解析失败，harness 会报 unknown skill。所以一律先归一到 LF。
+    """
+    return text.replace("\r\n", "\n").replace("\r", "\n")
+
+
 def _with_local_path(blob: bytes) -> str:
     """在 frontmatter 后插一行本机命令路径。
 
     values 未必在 PATH 里，模型照着抄 `values ctx` 会找不到命令；
     装的时候把真实路径写进去，就不依赖环境变量了。
     """
-    text = blob.decode("utf-8")
+    text = _to_lf(blob.decode("utf-8"))
     argv0 = Path(sys.argv[0]).resolve()
     # 用当前正在跑的解释器，而不是裸 python：
     # Windows 上 python 常是 WindowsApps 存根，执行会静默失败退出码 1。
@@ -254,7 +265,8 @@ def cmd_install_skill(args) -> int:
             _print(f"跳过 {name}：{dst} 已存在（加 --force 覆盖）")
             continue
         dst.mkdir(parents=True, exist_ok=True)
-        (dst / "SKILL.md").write_text(_with_local_path(blob), encoding="utf-8")
+        # 写字节而不是文本：文本模式在 Windows 上会把 \\n 翻译成 \\r\\n
+        (dst / "SKILL.md").write_bytes(_with_local_path(blob).encode("utf-8"))
         _print(f"已安装 {name:<12}{dst}")
         ok += 1
     return 0 if ok else 1
