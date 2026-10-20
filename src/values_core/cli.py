@@ -267,7 +267,7 @@ def build_parser() -> argparse.ArgumentParser:
     )
     p.add_argument("--data", help="指定 values-core.json.gz 路径")
     p.add_argument("--doc-dir", dest="doc_dir", help="指定 doctrine.md / voice.md 所在目录")
-    p.add_argument("--version", action="version", version=f"values-core {VERSION}")
+    p.add_argument("--version", action="version", version=f"sooon-values {VERSION}")
     sub = p.add_subparsers(dest="cmd")
 
     c = sub.add_parser("ctx", help="产出可粘贴的上下文块")

@@ -1,4 +1,4 @@
-"""values-core：把一套核心价值观做成任意 AI 都能调用的判断依据。
+"""Sooon Values：把一套价值观做成任意 AI 都能调用的判断依据。
 
     from values_core import Store, build_context
     store = Store()

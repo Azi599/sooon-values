@@ -14,7 +14,7 @@ from . import doctrine, render
 from .store import Store, StoreError
 
 PROTOCOL = "2024-11-05"
-SERVER_INFO = {"name": "values-core", "version": "1.0.0"}
+SERVER_INFO = {"name": "sooon-values", "version": "1.0.0"}
 
 TOOLS = [
     {
@@ -331,11 +331,11 @@ def serve(data_file: str | None = None) -> None:
     try:
         srv = Server(data_file)
     except StoreError as e:
-        sys.stderr.write(f"values-core 无法启动：{e}\n")
+        sys.stderr.write(f"sooon-values 无法启动：{e}\n")
         raise SystemExit(2) from e
 
     sys.stderr.write(
-        f"values-core 已启动：{srv.store.count} 条，"
+        f"sooon-values 已启动：{srv.store.count} 条，"
         f"{len(srv.store.leaf_paths)} 条路径，数据源 {srv.store.source}\n"
     )
     sys.stderr.flush()

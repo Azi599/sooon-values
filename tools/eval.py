@@ -279,7 +279,7 @@ def main() -> int:
     integ = eval_integrity(store)
 
     L: list[str] = []
-    L.append("# values-core 评测报告")
+    L.append("# Sooon Values 评测报告")
     L.append("")
     L.append(f"- 数据版本：{store.version}，{store.count} 条，{len(store.leaf_paths)} 条三级路径")
     L.append(f"- 全部离线运行，未调用任何模型；总耗时 {time.time() - t0:.1f} 秒")

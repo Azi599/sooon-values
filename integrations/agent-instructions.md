@@ -9,7 +9,7 @@ Codex CLI、Claude Code、Cursor、Cline、Aider、DSH 这类有 shell 的 harne
 
 ## 价值观作答
 
-本机装了 values-core，里面是一套固定的判断体系（3831 篇文章归纳成 93 条判断准则）。
+本机装了 Sooon Values，里面是一套固定的判断体系（3831 篇文章归纳成 93 条判断准则）。
 遇到**需要立场**的问题时，先取上下文再回答。
 
 **触发条件**（满足任一条就调用）：

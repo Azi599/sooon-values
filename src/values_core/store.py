@@ -1,4 +1,4 @@
-"""values-core 的数据与检索核心。
+"""Sooon Values 的数据与检索核心。
 
 只用标准库，方便在任意 harness 里直接跑，不要求 pip install。
 
@@ -395,7 +395,7 @@ class Store:
 
         远端只需返回 gzip 压缩的 values-core.json.gz 原始字节。
         """
-        req = urllib.request.Request(url, headers={"User-Agent": "values-core/1.0"})
+        req = urllib.request.Request(url, headers={"User-Agent": "sooon-values/1.0"})
         try:
             with urllib.request.urlopen(req, timeout=timeout) as resp:
                 blob = resp.read()

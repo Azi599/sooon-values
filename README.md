@@ -1,4 +1,4 @@
-# values-core
+# Sooon Values｜素问价值观
 
 把一套固定的价值观做成**任何 AI 都能调用**的判断依据。
 
@@ -73,8 +73,8 @@ values links "用户的原话"        # 只要原文链接，方便抓全文
 ### 1. 拿到它
 
 ```bash
-git clone https://github.com/Azi599/values-core.git
-cd values-core
+git clone https://github.com/Azi599/sooon-values.git
+cd sooon-values
 python dist/values.pyz stats
 ```
 
@@ -307,4 +307,4 @@ python tools/eval.py --out dist/eval-report.md    # 全离线，不调模型，�
 可以先用中文关键词搜。
 
 **问：`values` 和 qatool 是什么关系？**
-同源。qatool 是解析题目时按需注入价值观，values-core 是把同一套数据做成通用接口。
+同源。qatool 是解析题目时按需注入价值观，Sooon Values 是把同一套数据做成通用接口。

@@ -1,4 +1,4 @@
-"""把交付包编译成 values-core 的数据文件。
+"""把交付包编译成 Sooon Values 的数据文件。
 
 输入（Codex 交付目录）：
   delivery/values.txt        每条 [n] + 摘要正文
