@@ -1,0 +1,12 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+
+# 构建时从 data/ 复制进包内，避免同一份 1MB 数据在仓库里存两遍
+src/values_core/data/
+
+# 本地同步下来的数据副本
+.upload_*.gz
+upload_*.gz

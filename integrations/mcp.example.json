@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "values": {
+      "command": "python",
+      "args": ["D:/tools/values/values.pyz", "mcp"],
+      "env": {}
+    }
+  }
+}

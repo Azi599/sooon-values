@@ -1,0 +1,14 @@
+{
+  "name": "values-core",
+  "version": "1.0.0",
+  "description": "把一套 3831 篇的价值观做成任意 AI 可调用的判断依据：93 条判断准则、全文检索、原文链接。装上之后 AI 会按这套准则判断，而不是泛泛而谈。",
+  "author": {
+    "name": "swwdjx",
+    "email": ""
+  },
+  "homepage": "https://swwdjx.top",
+  "repository": "",
+  "license": "MIT",
+  "keywords": ["values", "judgement", "mcp", "skill"],
+  "skills": ["./skills/values-grounding"]
+}
